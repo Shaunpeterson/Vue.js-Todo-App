@@ -1,0 +1,199 @@
+#buttonwidth {
+	width: 50%;
+	line-height: 0.7;
+}
+.fa-edit:before {
+    content: "\f044";
+    float: left;
+}
+.fa-trash:before {
+    content: "\f1f8";
+    float: left;
+}
+
+.todo-list li.completed label {
+    color: #cdcdcd;
+    text-decoration: line-through;
+}
+
+.item_priority.high {
+	color: white;
+	background-color: #990b22;
+	text-align: center;
+};
+
+.todo-list li.completed  {
+    color: red;
+    text-decoration: line-through;
+    background-color: grey;
+}
+.filters li {
+    display: inline;
+}
+.filters li a {
+    color: inherit;
+    margin: 3px;
+    padding: 3px 7px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+.filters li a:hover {
+    border-color: rgba(175, 47, 47, 0.1);
+}
+.filters li a.selected {
+    border-color: rgba(175, 47, 47, 0.2);
+}
+.filters {
+	color: #fad643;
+	width: 70%;
+	text-align: center;
+	padding: 0;
+}
+.todo-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.todo-list li {
+    position: relative;
+    font-size: 18px;
+    border-bottom: 1px solid #ededed;
+}
+label {
+    background-repeat: no-repeat;
+    background-position: center left;
+    padding-left: 40px;
+}
+
+.container {
+   /* width: 600px;*/
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    font-family: 'Raleway', sans-serif;
+}
+.item_priority.low {
+    
+    background-color: #fad643;
+}
+button {
+  border: 1px  #0084ff;
+  border-radius: 5px;
+  padding: 8px 14px;
+  font-size: 15px;
+  color: transparent;
+  cursor: pointer;
+  background:
+   linear-gradient(#fad643,#fad643) 50% calc(100% - 2px) no-repeat,
+   #6a040f;
+  background-size:0% 2px;
+  transition:.5s all;
+   
+}
+
+button:hover {
+  background-size:80% 2px;
+}
+#buttontext {
+	color: white;
+}
+.fa-edit:before {
+    content: "\f044";
+    color: #fad643;
+}
+.fa-trash:before {
+    content: "\f1f8";
+    color: #fad643;
+}
+#div1 {
+	font-size: 16rem;
+	    text-align: left;
+      
+	    color: #fcedd8;
+	    background: #660708;
+	   	font-family: 'Niconne', cursive;
+	    font-weight: 400px;
+      text-shadow: 5px 5px 0px #eb452b, 
+                  10px 10px 0px #efa032, 
+                  15px 15px 0px #46b59b, 
+                  20px 20px 0px #017e7f, 
+                  25px 25px 0px #052939, 
+                  30px 30px 0px #c11a2b, 
+                  35px 35px 0px #660708, 
+                  40px 40px 0px #660708, 
+                  45px 45px 0px #660708;
+}
+
+p{
+    text-align: center;
+    font-family: "Helvetica";
+    font-size:0.8rem;
+}
+
+a{
+    color: #d52e3f;
+    text-decoration: none;
+    font-family: 'Niconne', cursive;
+    font-size: 1.2rem;
+
+}
+
+@media only screen and (max-width: 750px) {
+  #div1 {
+	font-size: 8rem;
+	    text-align: left;
+      
+	    color: #fcedd8;
+	    background: #660708;
+	   	font-family: 'Niconne', cursive;
+	    font-weight: 400px;
+      text-shadow: 5px 5px 0px #eb452b, 
+                  10px 10px 0px #efa032, 
+                  15px 15px 0px #46b59b, 
+                  20px 20px 0px #017e7f, 
+                  25px 25px 0px #052939, 
+                  30px 30px 0px #c11a2b, 
+                  35px 35px 0px #660708, 
+                  40px 40px 0px #660708, 
+                  45px 45px 0px #660708;
+}
+#size {
+	display: none;
+}
+#id01{
+	margin-left: 50px;
+}
+#but {
+	width: 93%;
+	margin-left: 13px;
+}
+.filters{
+	margin-left: 35px;
+}
+
+}
+@media only screen and (max-width: 850px) {
+  #div1 {
+	font-size: 8rem;
+	    text-align: left;
+      
+	    color: #fcedd8;
+	    background: #660708;
+	   	font-family: 'Niconne', cursive;
+	    font-weight: 400px;
+      text-shadow: 5px 5px 0px #eb452b, 
+                  10px 10px 0px #efa032, 
+                  15px 15px 0px #46b59b, 
+                  20px 20px 0px #017e7f, 
+                  25px 25px 0px #052939, 
+                  30px 30px 0px #c11a2b, 
+                  35px 35px 0px #660708, 
+                  40px 40px 0px #660708, 
+                  45px 45px 0px #660708;
+}
+#size {
+	display: none;
+}
+}
