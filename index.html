@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue To Do List</title>
+	<link rel="stylesheet" type="text/css" href="css/Vuetodo.css">
+</head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha256-j+P6EZJVrbXgwSR5Mx+eCS6FvP9Wq27MBRC/ogVriY0=" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style type="text/css">
+    	.item_priority.low {
+	color: white; text-align: center;
+	};
+    </style>
+
+<body style="background-color: #660708">
+	<div id="todo-list" class="container col-sm-8 col-sm-offset-2" style="width: 90%">
+		<div>
+			<div id="div1" class="text-center"> <span>To Do List</span> </div>	   
+			<div class="col-md-8">
+			    <button v-if="state === 'default'" class="btn btn-primary" @click="changeState('edit') ">Add Item</button>
+			    <button v-else class="btn btn-info" @click="changeState('default')" id="size">Welcome</button>
+			</div>
+				    <br>
+				    <br>
+<!--New Item entry--->
+		<div class="col-sm-3">
+			<input class="form-control input-lg" v-model="newItem"  type="text" placeholder="New Todo.." @keyup.enter="saveItem"  >
+		</div>
+<!--Priority High or Low--->
+		<div class="col-sm-1">
+			<select type="text" name="priority"  v-model="priority" @change="onChange()" class="form-control">
+         		<option  priority="high">high</option>
+        		<option priority="low">low</option>
+    		</select>       
+		</div>	
+<!--Entry for new date with task---> 
+		<div class="col-sm-2"> 
+			<input class="form-control"  v-model="newdate" type="date" type="text"/>
+		</div>
+<!--Button to save final task--->			        				        
+		<div class="col-sm-2">
+			<button class='btn btn-primary btn-block' v-bind:disabled="newItem.length === 0"@click= "saveItem">Save Item</button>
+		</div>
+<!-- pending number of tasks input--->
+		<div class="col-sm-2">
+			<!-- <span v-show="itemsTodo.length"> ({{ itemsTodo.length }} pending) </span> -->
+		</div>
+	<br>
+	<br>
+	<br>
+	<!--- Filters used as categories for challenege--->
+	<ul class="filters" >
+                <li>
+                    <a href="#" :class="activeButton" v-on:click="showActive">Active</a>
+                </li>
+                <li>
+                    <a :class="allButton" href="#" v-on:click="showAll">All</a>
+                </li>
+                <li>
+                    <a href="#" :class="completedButton" v-on:click="showCompleted">Completed</a>
+                </li> 
+    </ul>				
+					
+<!--- Input task related content--->					<!--:class if got inderline on click --->
+	<ul id="id01" type="none" style="width: 70%; padding-bottom: 15px" class="todo-list">
+		<li class="list-group-item list-group-item-danger animated flipInX" v-for="(item,priority,date) in sortFunc()" :class="item.todoCompletionState" >		      	
+<!-------editing a task-------->
+			<div v-if="!item.editing" class="form-check">
+			
+			     		<input type="checkbox" v-on:click="toggleTodoCompletionState(item)"  v-model="item.todoCompletionToggleButtonState" class="toggle">	
+			     		<label>{{ item.label }}</label>      
+			</div>
+<!--After edit is done--->
+			<input v-else type="text" @keyup.enter="doneEdit(item)" class="item-input-edit col10 form-control" v-model="item.label"/>
+			
+<!--Due date display--->
+			      	<div style="text-align: center;"><label><span >Task Due:</span> <span><b>{{ item.date }}<b></span> </label></div>
+
+			      	<span><button id="buttonwidth" type="button" @click="item.editing = true" class="fas fa-edit"><span style="color: #fad643">Edit</span></button><span>
+<!-------Checking and completing a task-------->
+			<span><button id="buttonwidth" class="fas fa-trash" v-on:click="removeitems(item)"><span style="color: #fad643">Delete</span></button></span>
+<!--Priority display--->
+			      	<div class="item_priority" :class="item.priority" style="border-radius: 5px;">Priority:{{ item.priority }} </div>
+		</li>
+	</ul>
+<!-------Once task list is empty-------->
+	<h2 v-if="items.length === 0">Nice Job! Nothing in TO DO LIST</h2>
+		<div class="col-sm-4">
+<!-------clear checked task-------->
+				<button class="btn btn-warning btn-block" v-on:click="clearcompleted"> Clear Completed</button>
+		</div>
+<!-------Clear all tasks-------->
+		<div class="col-sm-4">
+				<button class="btn btn-danger btn-block" @click="clearAll"> Clear All</button>
+		</div>
+				<button class="btn btn-primary btn-sm" onclick="sortList()" id="but">sort</button>
+			</div>
+</div>
+		
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js"></script>
+<script src="script/code.js" >
+
+</script>
+</body>
+</html>
+
